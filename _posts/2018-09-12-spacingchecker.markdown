@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Typo Checker"
+title:  "SpacingChecker"
 date:   2018-09-12 19:00:00 +0200
 categories: jekyll update
 ---
@@ -10,5 +10,5 @@ but I will keep improving it, and I'll do another post when a lot more languages
 
 Here is the project [link][project], check the [README][readme] frequently to see which languages are supported!
 
-[project]: https://github.com/Smlep/TypoChecker
-[readme]: https://github.com/Smlep/TypoChecker/blob/master/README.md
+[project]: https://github.com/Smlep/SpacingChecker
+[readme]: https://github.com/Smlep/SpacingChecker/blob/master/README.md

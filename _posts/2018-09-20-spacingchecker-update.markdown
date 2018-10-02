@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "News on Typo Checker"
+title:  "News on SpacingChecker"
 date:   2018-09-20 20:00:00 +0200
 categories: jekyll update
 ---
@@ -25,7 +25,7 @@ If there is a language that you want to see supported, feel free to open a new [
 
 Here is the project [link][project], check the [README][readme] and the [issues][issue-list] frequently to see which languages are supported!
 
-[post]: https://smlep.github.io/jekyll/update/2018/09/12/typo-checker.html
-[project]: https://github.com/Smlep/TypoChecker
-[readme]: https://github.com/Smlep/TypoChecker/blob/master/README.md
-[issue-list]: https://github.com/Smlep/TypoChecker/issues
+[post]: https://smlep.github.io/jekyll/update/2018/09/12/spacingchecker.html
+[project]: https://github.com/Smlep/SpacingChecker
+[readme]: https://github.com/Smlep/SpacingChecker/blob/master/README.md
+[issue-list]: https://github.com/Smlep/SpacingChecker/issues
