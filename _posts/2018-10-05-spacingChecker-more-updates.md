@@ -34,7 +34,7 @@ $ ./check.sh language file1 file2 *.txt
 
 Installation
 ------------
-Because cloning a git repository and using the program from the repository is pretty annoying , I've added an homebrew tap, so you can install it with homebrew and use [SpacingChecker](https://github.com/Smlep/SpacingChecker) as ```spaceCheck```:
+Because cloning a git repository and using the program from the repository is pretty annoying, I've added an homebrew tap, so you can install it with homebrew and use [SpacingChecker](https://github.com/Smlep/SpacingChecker) as ```spaceCheck```:
 ```
 $ brew tap smlep/spacingchecker
 $ brew install spacingchecker
