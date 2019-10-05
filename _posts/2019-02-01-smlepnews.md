@@ -76,3 +76,46 @@ Moreover, I enjoyed writing code in Python for some popular reasons such as the
 ability to write code fast and easily, the light syntax and the huge amount of
 already existing packages.
 
+Starting to gather
+------------------
+
+Once (almost) everything was decided, I was able to start gathering data.
+
+Product Hunt
+============
+
+[Product Hunt](https://www.producthunt.com/) was the first website where I
+tried to gather data, my goal was to get the links and information for the most
+popular products each day so that I could easily see if I found any of them
+interesting, and if I did, access to more details by following the link to the
+owner's website.
+
+Product Hunt gives the users access to an
+[API](https://api.producthunt.com/v1/docs) which can be easily used to make
+simple read-only request as long as you have an access\_token. This token can
+be obtained by creating an account and going to the [api
+dashboard](https://api.producthunt.com/v2/oauth/applications).
+
+Then, anyone can easily access to the top posts of each day to gather the **names**,
+the **taglines**, the number of **votes** and the product's **urls**.
+
+GitHub
+======
+
+The second website where I liked to find news was
+[GitHub](https://github.com/), I really like open-source and learning new
+technologies, so I felt like going through the most popular repositories daily
+would be a good way to stay up-to-date.
+
+GitHub also provides an [API](https://developer.github.com/v3/) which does not
+require authentication to execute read-only requests with a limit of 60
+requests per hour. Of course, by being authenticated, you can execute more
+complex requests and with more requests per hour, but for what I needed to do,
+there was no need to be authenticated.
+
+What I did was requesting the most popular repositories from the last 24 hours
+and extract basic information about them: the **names**, the **descriptions**,
+the **authors** and the number of **stars**.
+
+The source code for this project can be found
+[here](https://github.com/Smlep/smlepNews).
