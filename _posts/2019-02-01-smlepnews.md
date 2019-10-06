@@ -30,7 +30,7 @@ left me with plenty of choice about what to create, so I started to think about
 what I thought I needed.
 
 A few months before that, I started to be interested about startups and new
-tech products, so I tried to made an habit of staying up-to-date with tech news
+tech products, so I tried to make a habit of staying up-to-date with tech news
 and innovations.
 
 To do so, I spent a few minutes a day on
@@ -39,7 +39,7 @@ To do so, I spent a few minutes a day on
 products and open-source softwares that I still use today (like
 [f.lux](https://justgetflux.com/) for example). In the beginning, I really
 enjoyed that, but after some time, some day it really started to feel like a
-chore and it became hard to stay up-to-date.
+chore and it became harder to stay up-to-date.
 
 So I decided to create a tool which would make this easier for me, and that's
 how I started my own news aggregator.
@@ -64,7 +64,7 @@ What technologies should I use?
 ===============================
 
 So, in the end, what I had to do was make calls to some APIs, and maybe do some
-scrapping, and then find a way to bring these information to me easily (command
+scrapping, and then find a way to bring this information to me easy (command
 line tool, website, or e-mails were the first way I thought about).
 
 Python seemed like an obvious choice to me, since I knew well this language, it
@@ -92,7 +92,7 @@ owner's website.
 
 Product Hunt gives the users access to an
 [API](https://API.producthunt.com/v1/docs) which can be easily used to make
-simple read-only request as long as you have an access\_token. This token can
+simple read-only requests as long as you have an access\_token. This token can
 be obtained by creating an account and going to the [API
 dashboard](https://API.producthunt.com/v2/oauth/applications).
 
@@ -129,7 +129,7 @@ all the information I needed on the articles.
 But the thing with news is that it only is really relevant if it's localized,
 and since I live in France, I needed to get news from a local newspaper.
 
-So I chose to get news from [Le Figaro](http://www.lefigaro.fr/) which is
+So I chose to get news from [Le Figaro](http://www.lefigaro.fr/), which is
 a French daily morning newspaper. Sadly, [Le Figaro](http://www.lefigaro.fr/)
 does not provide any **API**, but it has its own *rss feed*
 [here](http://www.lefigaro.fr/rss/figaro_actualites.xml), and parsing *rss
@@ -148,7 +148,7 @@ The weather website I decided to use was the popular
 an easy-to-use and free weather API for over 200 000 cities.
 
 This allowed me to get the weather for the next 24 hours with a 3-hour interval
-which was a precise enough information.
+which was accurate enough for me.
 
 Displaying the data
 -------------------
@@ -159,24 +159,24 @@ be brought to me and when.
 The when was an easy question, indeed I designed most of the **API** calls to
 get information for today, so I chose that I wanted to get the results daily.
 
-But how was a most tricky question...
+But how was a most trickier question...
 
 Command Line Tool
 =================
 
 The easiest thing I could do was to simply do command line calls to my python
 program and display the formatted output on my computer's shell every time I
-wanted to have these information.
+wanted to have this information.
 
 This is pretty easy, I simply had to write a few functions to format the data I
-gathered from the different **API**s and have an entry file which once called
+gathered from the different **API**s and have an entry file, which once called
 would make all the calls, format the output and display them to me.
 
 With a few tricks, I could have made this as a simple shell command I could
 call from anywhere (like `showNews`).
 
 The issue with this solution would be that I would have had to open my laptop
-and start the program each time, this is something I do pretty often but the
+and start the program each time, this is something I do pretty often, but the
 goal was to get the news every morning easily, and opening my laptop is not the
 first thing I do every morning.
 
@@ -185,7 +185,7 @@ Website
 
 The second solution I explored was to display the gathered data in a website,
 so that I could open the website every morning on my phone, laptop or pretty
-much anything which has internet.
+much anything with internet.
 
 Deploying small websites is something I have done a lot, so I already had the
 technologies figured out, [Django](https://www.djangoproject.com/) in the
@@ -196,7 +196,7 @@ To deploy my website online, I would use [Heroku](https://www.heroku.com) which
 I really enjoyed since it allows me to deploy free websites and I find the git
 deployment really easy and smooth.
 
-There was two issues (that i found) with the website solution.
+There were two issues (that I found) with the website solution.
 
 First, it was a lot more work than what I was going for in the beginning,
 because even creating and deploying simple website is still a consequent amount
@@ -205,7 +205,7 @@ of work if I want to do it well.
 The second issue is that this program's goal was to be as light and small as
 possible and turning this repository into a Django website was going to make it
 way heavier than I wanted. Of course, I could keep this repository to do only
-the API calls, and design the Django website in another repository but another
+the API calls, and design the Django website in another repository, but another
 goal I had was to have everything in the same repository, so that was not going
 to work.
 
@@ -255,7 +255,7 @@ Languages
 =========
 
 To speak briefly about the languages, since I was getting french articles from
-[Le Figaro](http://www.lefigaro.fr/), I was not able anymore to do a fully
+[Le Figaro](http://www.lefigaro.fr/), I was not able anymore to do a full
 English software. So I decided to have two versions of the sent emails: English
 and French, the English one using [The Guardian](https://www.theguardian.com/)
 and the French one using [Le Figaro](http://www.lefigaro.fr/).
@@ -275,7 +275,7 @@ email](/assets/smlepnews_french.png)
 And this is how the English version would look:
 ![Example email](/assets/smlepnews_english.png)
 
-The emails design is pretty poor in my opinion but it brings me the information
+The email design is pretty poor in my opinion, but it brings me the information
 I need each morning so I don't think I will try to spend hours to try to have
 pretty emails since the email part is not the main purpose of this project.
 
