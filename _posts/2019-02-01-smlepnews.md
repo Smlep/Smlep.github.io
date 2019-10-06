@@ -1,5 +1,5 @@
 ---
-title: 'SmlepNews: A simple program to gather news from various apis'
+title: 'SmlepNews: A simple program to gather news from various APIs'
 layout: post
 categories: jekyll update
 ---
@@ -8,7 +8,7 @@ Context
 -------
 
 During January, I had a lot of spare time compared to what I usually have: I
-had just finished my fourth year intersnhip and was waiting to really resume
+had just finished my fourth year internship and was waiting to really resume
 the lectures I had at school.
 
 So I decided to work on another small project because I really enjoyed working
@@ -37,12 +37,12 @@ To do so, I spent a few minutes a day on
 [Product Hunt](https://www.producthunt.com/) and
 [GitHub](https://github.com/explore) and I found some really interesting
 products and open-source softwares that I still use today (like
-[f.lux](https://justgetflux.com/) for example). In the beggining, I really
+[f.lux](https://justgetflux.com/) for example). In the beginning, I really
 enjoyed that, but after some time, some day it really started to feel like a
 chore and it became hard to stay up-to-date.
 
 So I decided to create a tool which would make this easier for me, and that's
-how I started my own news agreggator.
+how I started my own news aggregator.
 
 Preparation steps
 -----------------
@@ -63,12 +63,12 @@ what would be nice to have if I had enough time/motivation:
 What technologies should I use?
 ===============================
 
-So, in the end, what I had to do was make calls to some apis, and maybe do some
+So, in the end, what I had to do was make calls to some APIs, and maybe do some
 scrapping, and then find a way to bring these information to me easily (command
 line tool, website, or e-mails were the first way I thought about).
 
 Python seemed like an obvious choice to me, since I knew well this language, it
-was going to be easy to make calls to an api, to scrap websites, to send
+was going to be easy to make calls to an API, to scrap websites, to send
 e-mails or even to display the information I gathered on a website (I had a
 good Django background).
 
@@ -91,10 +91,10 @@ interesting, and if I did, access to more details by following the link to the
 owner's website.
 
 Product Hunt gives the users access to an
-[API](https://api.producthunt.com/v1/docs) which can be easily used to make
+[API](https://API.producthunt.com/v1/docs) which can be easily used to make
 simple read-only request as long as you have an access\_token. This token can
-be obtained by creating an account and going to the [api
-dashboard](https://api.producthunt.com/v2/oauth/applications).
+be obtained by creating an account and going to the [API
+dashboard](https://API.producthunt.com/v2/oauth/applications).
 
 Then, anyone can easily access to the top posts of each day to gather the **names**,
 the **taglines**, the number of **votes** and the product's **urls**.
@@ -117,5 +117,174 @@ What I did was requesting the most popular repositories from the last 24 hours
 and extract basic information about them: the **names**, the **descriptions**,
 the **authors** and the number of **stars**.
 
+Global News: The Guardian and Le Figaro
+=======================================
+
+For the news, I first started to use
+[The Guardian](https://www.theguardian.com/), since it has a nice
+**API** which can be used by getting an API key by registering
+[there](https://open-platform.theguardian.com/). The API is easy to use and has
+all the information I needed on the articles.
+
+But the thing with news is that it only is really relevant if it's localized,
+and since I live in France, I needed to get news from a local newspaper.
+
+So I chose to get news from [Le Figaro](http://www.lefigaro.fr/) which is
+a French daily morning newspaper. Sadly, [Le Figaro](http://www.lefigaro.fr/)
+does not provide any **API**, but it has its own *rss feed*
+[here](http://www.lefigaro.fr/rss/figaro_actualites.xml), and parsing *rss
+feed* is really easy with *Python* using
+[feedparser](https://pythonhosted.org/feedparser/).
+
+Weather
+=======
+
+While I was implementing the **API** gatherers, I had another idea for
+improvement. One thing I do every day is checking the weather in the morning,
+so I chose to add a weather gatherer.
+
+The weather website I decided to use was the popular
+[OpenWeatherMap](https://openweathermap.org/) which is well-known for providing
+an easy-to-use and free weather API for over 200 000 cities.
+
+This allowed me to get the weather for the next 24 hours with a 3-hour interval
+which was a precise enough information.
+
+Displaying the data
+-------------------
+
+Once I had gathered everything I wanted, I had to decide how the results would
+be brought to me and when.
+
+The when was an easy question, indeed I designed most of the **API** calls to
+get information for today, so I chose that I wanted to get the results daily.
+
+But how was a most tricky question...
+
+Command Line Tool
+=================
+
+The easiest thing I could do was to simply do command line calls to my python
+program and display the formatted output on my computer's shell every time I
+wanted to have these information.
+
+This is pretty easy, I simply had to write a few functions to format the data I
+gathered from the different **API**s and have an entry file which once called
+would make all the calls, format the output and display them to me.
+
+With a few tricks, I could have made this as a simple shell command I could
+call from anywhere (like `showNews`).
+
+The issue with this solution would be that I would have had to open my laptop
+and start the program each time, this is something I do pretty often but the
+goal was to get the news every morning easily, and opening my laptop is not the
+first thing I do every morning.
+
+Website
+=======
+
+The second solution I explored was to display the gathered data in a website,
+so that I could open the website every morning on my phone, laptop or pretty
+much anything which has internet.
+
+Deploying small websites is something I have done a lot, so I already had the
+technologies figured out, [Django](https://www.djangoproject.com/) in the
+back-end, classic **HTML** and **CSS** in front-end with
+[Boostrap](https://getbootstrap.com/) to have something fast and not too ugly.
+
+To deploy my website online, I would use [Heroku](https://www.heroku.com) which
+I really enjoyed since it allows me to deploy free websites and I find the git
+deployment really easy and smooth.
+
+There was two issues (that i found) with the website solution.
+
+First, it was a lot more work than what I was going for in the beginning,
+because even creating and deploying simple website is still a consequent amount
+of work if I want to do it well.
+
+The second issue is that this program's goal was to be as light and small as
+possible and turning this repository into a Django website was going to make it
+way heavier than I wanted. Of course, I could keep this repository to do only
+the API calls, and design the Django website in another repository but another
+goal I had was to have everything in the same repository, so that was not going
+to work.
+
+Emails
+======
+
+The solution I chose to use were emails. This was pretty easy, I wrote a few
+functions which formatted the gathered data to be easy to read in an email,
+then I created a gmail account for this purpose, and using
+[smtplib](https://docs.python.org/3/library/smtplib.html) I was easily able to
+send an email to target I chose.
+
+But what I wanted to do wasn't to open my laptop every morning, run a python
+program and then go to my email reader to read the email I just sent myself,
+this would just be a waste of time and would be like the *command line
+interface* solution but more complicated.
+
+What I needed was for these emails to be sent programmatically every morning,
+no matter if I had access to my laptop at that time.
+
+Another thing I wanted to do was being able to send the email to multiple
+targets, and to be able to update the target list *easily* without having to
+alter my code.
+
+So, I took a free [AWS](https://aws.amazon.com) **EC2** which I could easily
+access through *ssh*. There, I cloned my repository, added my credentials and
+added a local [PostgreSQL](https://www.postgresql.org/) database on which I
+stored all the target emails.
+
+So, every time I'd call `sender.py`, the calls to the *API*s would be made, the
+results formatted and then an email would be sent to each target on the target
+list.
+
+And last, to be sure my server would trigger the python package every morning,
+I added a [cron job](https://en.wikipedia.org/wiki/Cron) for each morning at 8
+a.m., here's the content of my crontab (opened with `crontab -e`):
+
+```
+0 8 * * * ~/cron/news.sh 2>~/log/error.log
+```
+
+`news.sh` is a simple bash program I used to call my `sender.py` file, I used
+it to make some tests and I'm pretty sure it isn't required anymore, so I might
+refactor this in the future.
+
+Languages
+=========
+
+To speak briefly about the languages, since I was getting french articles from
+[Le Figaro](http://www.lefigaro.fr/), I was not able anymore to do a fully
+English software. So I decided to have two versions of the sent emails: English
+and French, the English one using [The Guardian](https://www.theguardian.com/)
+and the French one using [Le Figaro](http://www.lefigaro.fr/).
+
+Right now, the emails I send myself are in French, but the way I designed this,
+it could be swapped by changing two characters in the code. In the future, I
+might add the desired language in the database next to the target emails to
+make this more flexible.
+
+Results
+-------
+
+Now, each morning I get an email looking like this:
+![French example
+email](/assets/smlepnews_french.png)
+
+And this is how the English version would look:
+![Example email](/assets/smlepnews_english.png)
+
+The emails design is pretty poor in my opinion but it brings me the information
+I need each morning so I don't think I will try to spend hours to try to have
+pretty emails since the email part is not the main purpose of this project.
+
+To conclude, I really enjoyed working on this project and writing this post,
+so I will try to find another small project of this kind to work on soon and I
+might be back with another post of this kind.
+
+Thanks for reading this!
+
 The source code for this project can be found
-[here](https://github.com/Smlep/smlepNews).
+[here](https://github.com/Smlep/smlepNews), you can leave a star if you find it
+useful :blush:.
