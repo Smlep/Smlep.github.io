@@ -156,21 +156,21 @@ Displaying the data
 Once I had gathered everything I wanted, I had to decide how the results would
 be brought to me and when.
 
-The when was an easy question, indeed I designed most of the **API** calls to
-get information for today, so I chose that I wanted to get the results daily.
+The when was an easy question, indeed, I designed most of the **API** calls to
+get information for today, so I decided that I wanted to get the results daily.
 
-But how was a most trickier question...
+But how was a trickier question...
 
 Command Line Tool
 =================
 
-The easiest thing I could do was to simply do command line calls to my python
-program and display the formatted output on my computer's shell every time I
-wanted to have this information.
+The easiest thing I could do was to simply do command line calls to my
+**Python** program and display the formatted output on my computer's shell
+every time I wanted to have this information.
 
 This is pretty easy, I simply had to write a few functions to format the data I
-gathered from the different **API**s and have an entry file, which once called
-would make all the calls, format the output and display them to me.
+gathered from the different **API**s and have an entry **Python** file, which
+once executed would make all the calls, format the output and display them to me.
 
 With a few tricks, I could have made this as a simple shell command I could
 call from anywhere (like `showNews`).
@@ -184,7 +184,7 @@ Website
 =======
 
 The second solution I explored was to display the gathered data in a website,
-so that I could open the website every morning on my phone, laptop or pretty
+so that I could read the news every morning on my phone, laptop or pretty
 much anything with internet.
 
 Deploying small websites is something I have done a lot, so I already had the
@@ -199,34 +199,34 @@ deployment really easy and smooth.
 There were two issues (that I found) with the website solution.
 
 First, it was a lot more work than what I was going for in the beginning,
-because even creating and deploying simple website is still a consequent amount
+because creating and deploying a simple website is still a consequent amount
 of work if I want to do it well.
 
 The second issue is that this program's goal was to be as light and small as
-possible and turning this repository into a Django website was going to make it
-way heavier than I wanted. Of course, I could keep this repository to do only
-the API calls, and design the Django website in another repository, but another
-goal I had was to have everything in the same repository, so that was not going
-to work.
+possible but turning this repository into a Django website was going to make it
+way heavier than I wanted. Of course, I could keep this repository to only
+perform the API calls, and design the Django website in another repository, but
+another goal I had was to have everything in the same repository, so that was
+not going to work.
 
 Emails
 ======
 
-The solution I chose to use were emails. This was pretty easy, I wrote a few
+The solution I chose to use was emails. This was pretty easy, I wrote a few
 functions which formatted the gathered data to be easy to read in an email,
 then I created a gmail account for this purpose, and using
-[smtplib](https://docs.python.org/3/library/smtplib.html) I was easily able to
-send an email to target I chose.
+[smtplib](https://docs.python.org/3/library/smtplib.html) I was able to
+send an email to a target I chose.
 
-But what I wanted to do wasn't to open my laptop every morning, run a python
-program and then go to my email reader to read the email I just sent myself,
-this would just be a waste of time and would be like the *command line
-interface* solution but more complicated.
+But what I wanted to do wasn't to open my laptop every morning, run a
+**Python** program and then go to my email reader to read the email I just
+sent myself, this would just be a waste of time and would be like the *command
+line interface* solution but more complicated.
 
 What I needed was for these emails to be sent programmatically every morning,
 no matter if I had access to my laptop at that time.
 
-Another thing I wanted to do was being able to send the email to multiple
+Another thing I wanted was to be able to send the email to multiple
 targets, and to be able to update the target list *easily* without having to
 alter my code.
 
@@ -235,26 +235,26 @@ access through *ssh*. There, I cloned my repository, added my credentials and
 added a local [PostgreSQL](https://www.postgresql.org/) database on which I
 stored all the target emails.
 
-So, every time I'd call `sender.py`, the calls to the *API*s would be made, the
+So, every time I'd call `sender.py`, the calls to the **API**s would be made, the
 results formatted and then an email would be sent to each target on the target
 list.
 
-And last, to be sure my server would trigger the python package every morning,
-I added a [cron job](https://en.wikipedia.org/wiki/Cron) for each morning at 8
-a.m., here's the content of my crontab (opened with `crontab -e`):
+And last, to be sure my server would trigger the **Python** package every
+morning, I added a [cron job](https://en.wikipedia.org/wiki/Cron) for each
+morning at 8 a.m., here's the content of my crontab (opened with `crontab -e`):
 
 ```
 0 8 * * * ~/cron/news.sh 2>~/log/error.log
 ```
 
-`news.sh` is a simple bash program I used to call my `sender.py` file, I used
+`news.sh` is a simple bash program used to call my `sender.py` file, I used
 it to make some tests and I'm pretty sure it isn't required anymore, so I might
 refactor this in the future.
 
 Languages
 =========
 
-To speak briefly about the languages, since I was getting french articles from
+To speak briefly about the languages, since I was getting French articles from
 [Le Figaro](http://www.lefigaro.fr/), I was not able anymore to do a full
 English software. So I decided to have two versions of the sent emails: English
 and French, the English one using [The Guardian](https://www.theguardian.com/)
