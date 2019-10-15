@@ -19,7 +19,7 @@ how to code. We are a small team working on it, and one thing I have to do that
 others don't is reviewing what the people I work with write.
 
 So, when someone wants to add a new paragraph in a tutorial, then he has to do
-a **Merge Request** on our gitlab and I (or the other guy who is also in charge
+a **Merge Request** on our GitLab and I (or the other guy who is also in charge
 of reviewing) have to review and merge if everything is fine.
 
 Of course, everyone did spelling mistakes since we were all only getting
@@ -38,11 +38,66 @@ deal of confusion about what rule to use, and that meant many mistakes.
 I knew that eventually, these rules would stick and that nobody would make
 these mistakes anymore, but it was going to take some time and I was getting
 tired of leaving 20 comments on each **Merge Request** so I decided to create a
-tool to be able to fastly check if someone made this kind of mistake.
+tool to be able to fast check if someone made this kind of mistake.
 
 First part: The few hours long project...
 -----------------------------------------
 
+At this point, I wanted to create in **a few hours** a light program to display
+the spacing mistakes in a text, so I chose which technologies I would use
+accordingly.
+
+I could have gone for Python to have a program which would parse a file and try
+to find how spaces were set around punctuation or maybe the same thing in C or
+C++ which would be harder to create but would have way better performance. But
+I didn't care about the performance, It didn't matter to me if checking a text
+file would take 0.002 second or only 0.1 second so I did not go for C or C++.
+
+When I started to think about it, the easiest way to detect these errors would
+be to parse my file with **regular expressions** (which I'll call **regexs**),
+so I decided to go for the simplest way I knew to match regular expressions in
+file: [grep](https://www.gnu.org/software/grep/).
+
+[grep](https://www.gnu.org/software/grep/) is a simple way to find lines
+matching a pattern in files, what I had to do was to create **regexs** which
+matched the spacing errors, feed them to `grep` with the files I wanted to
+check, and that was it: a few hours work!
+
+So I started to implement this simple shell program, I decided to first write
+the rules for French, knowing that I would do the same for English after that.
+
+To have a flexible program, I chose to store the languages configuration in
+different files, which I called language files, I gave them the `.lg`
+extension.
+
+My program was then divided in two files: the language file for French
+(`french.lg`) which looked like this back then:
+
+```
+ ,
+ \.
+[^ ]?
+[^ ]!
+[^ ];
+[^ ]:
+```
+
+And the checker (`check.sh`) which consisted in a loop going through my
+language files to then call `grep` on the target file with each **regex**
+contained in the language file.
+
+A few minutes and commits later I had the English language file ready, the
+French language file had been improved so I had reached what I wanted to
+have in the beginning: a simple program to detect some spacing errors in text
+file in English or French.
+
+My repository at this point can be found
+[here](https://github.com/Smlep/SpacingChecker/tree/4cd6cc179914720c0059dd7588f742f56cd4bdce).
+
+But, by the time I had reached this point, I already started to have many new
+ideas for this program. Most of them were pretty simple or useless, but I
+wanted to improve my [SpacingChecker](https://github.com/Smlep/SpacingChecker),
+so I continued to work on this.
 
 This is still a work in progress...
 -----------------------------------
