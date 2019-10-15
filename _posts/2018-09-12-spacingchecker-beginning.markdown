@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SpacingChecker"
+title:  "SpacingChecker: Starting a new project"
 date:   2018-09-12 19:00:00 +0200
 categories: jekyll update
 ---
