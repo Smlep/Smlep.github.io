@@ -73,14 +73,14 @@ extension.
 My program was then divided in two files: the language file for French
 (`french.lg`) which looked like this back then:
 
-```
+`
  ,
  \.
 [^ ]?
 [^ ]!
 [^ ];
 [^ ]:
-```
+`
 
 And the checker (`check.sh`) which consisted in a loop going through my
 language files to then call `grep` on the target file with each **regex**
@@ -99,9 +99,141 @@ ideas for this program. Most of them were pretty simple or useless, but I
 wanted to improve my [SpacingChecker](https://github.com/Smlep/SpacingChecker),
 so I continued to work on this.
 
+Second part: Making this program full
+-------------------------------------
+
+The first thing I wanted was to have options, so that this program could be
+used in many situations, at this point I already had a simple `--help` option
+but I decided to add a few more and to change how I implemented `--help`.
+
+Help
+====
+
+Since I was beginning to have a big `README` file which described how my
+program worked, I realized that the best solution for me would be to simply
+display the content of my `README` when someone would trigger the `--help``
+option. It seemed like a good solution back then, but now the `README` got
+pretty huge, so I might need to rewrite a true help function in the future.
+
+Silent
+======
+
+The silent option, triggered with `-s` or `--silent` would hide everything
+which should be printed on the standard output, so that the only way to know if
+the program found any errors would be to look at the exit code.
+
+I implemented that the simplest way I knew how (there might be a better
+solution) is by redirecting the standard output in `/dev/null`.
+
+The resulting [code](https://github.com/Smlep/SpacingChecker/blob/master/check.sh#L135)
+looks like this:
+`
+if [ $SILENT -ne 0 ]; then
+  exec 1>/dev/null
+fi
+`
+
+Languages
+=========
+
+At this point, I had changed the structure of the languages files, it was not
+only a list of regex anymore, but there also was a **name** for each file and a
+**short name**, so each `lg` file started like this:
+```
+# Name: French
+# Short: fr
+```
+
+And if we wanted to check a file name `test.txt` in French, we could call
+`
+$ ./check.sh fr test.txt
+`
+
+This made the syntax lighter than when we had to give the language file path.
+
+To display the list of the short names for the available languages, the
+`-l`option was created.
+
+`-l`, `--lg`` or  `--languages` display every available languages and their
+short names:
+
+```
+$ ./check.sh -l
+
+Short names for available languages:
+fr: French
+gb: English (GB)
+de: German
+it: Italian
+us: English (US)
+```
+
+Once I had the language file structure figured out, I added more language files
+(right now, there are `french`, `gb_english`, `german`, `italian` and
+`us_english`), and kept improving the regular expressions for each languages.
+
+So, I added support for ellipses (`...`), time (`hh:mm`) and decimal numbers
+(is it `3.14` or `3,14` in this language?). This is why I had to split GB
+English and US English.
+
+Deploying my checker
+--------------------
+
+After adding a few options and three more languages my check was now way bigger
+than what I expected to create in the beginning. My `check.sh` which contained
+the shell script I used to perform the checking just went from 13 lines to more
+than 150.
+
+To feel like what I created would not be a 100% useless, I tried to make it
+easy to use for anyone, because at this point, it might seem easy to use, but
+it was annoying to install.
+
+To run the checker, you had to clone the
+[repository](https://github.com/Smlep/SpacingChecker) and then call the checker
+from withing the repository. To make it easy to install I decided to add it to
+a real package manager.
+
+The only package manager I really used being
+[Homebrew](https://brew.sh/), I wanted to do this one at least, and if it was
+not too hard, then I would make it able to be installed with `apt-get` and
+`Pacman`.
+
+I won't explain all the different steps I went through to add SpacingChecker to
+Homebrew, but it took me a way too high amount of time and of starting overs.
+This was the first thing I tried to add to Homebrew (and probably the last one
+:sweat_smile:) and it took me quite some time to make this work.
+
+But in the end, I reached something and now it can be installed this way:
+
+```
+$ brew tap Smlep/SpacingChecker
+$ brew install spacingChecker
+```
+
+Then, to use this from anywhere, juste call the `spaceCheck` command and
+everything works.
+
+```
+$ spaceCheck us tests/theTortoiseAndTheHare.txt
+
+Looking for a language file...
+Searching files corresponding to us
+Loading English (US)
+
+Checking tests/theTortoiseAndTheHare.txt:
+
+No error found in tests/theTortoiseAndTheHare.txt
+```
+
+Adding SpacingChecker to Homebrew really blow off my motivation, so I decided
+not to add it to `apt-get` or `Pacman` for now, but I might do it in the
+future.
+
+Conclusion
+----------
+
 This is still a work in progress...
 -----------------------------------
-
 
 
 
