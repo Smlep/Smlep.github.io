@@ -10,11 +10,11 @@ Context
 I have written some posts about
 [SpacingChecker](https://github.com/Smlep/SpacingChecker) in the past to talk
 about how the project was changing and what I was adding, but now that I think
-I am done with it, it's time for a conclusion post to talk about what really
+I am done with it, it's time for a concluding post to talk about what really
 was that project and why it existed.
 
 A few months ago, I started to have to this work in parallel with my studies
-where, among other things, we write tutorials for students to help them learn
+where, among, other things, we write tutorials for students to help them learn
 how to code. We are a small team working on it, and one thing I have to do that
 others don't is reviewing what the people I work with write.
 
@@ -48,7 +48,7 @@ the spacing mistakes in a text, so I chose which technologies I would use
 accordingly.
 
 I could have gone for Python to have a program which would parse a file and try
-to find how spaces were set around punctuation or maybe the same thing in C or
+to find how spaces were set around punctuation, or maybe the same thing in C or
 C++ which would be harder to create but would have way better performance. But
 I didn't care about the performance, It didn't matter to me if checking a text
 file would take 0.002 second or only 0.1 second so I did not go for C or C++.
@@ -66,11 +66,11 @@ check, and that was it: a few hours work!
 So I started to implement this simple shell program, I decided to first write
 the rules for French, knowing that I would do the same for English after that.
 
-To have a flexible program, I chose to store the languages configuration in
+To have a flexible program, I chose to store the languages configurations in
 different files, which I called language files, I gave them the `.lg`
 extension.
 
-My program was then divided in two files: the language file for French
+My program was then divided into two files: the language file for French
 (`french.lg`) which looked like this back then:
 
 `
@@ -88,8 +88,8 @@ contained in the language file.
 
 A few minutes and commits later I had the English language file ready, the
 French language file had been improved so I had reached what I wanted to
-have in the beginning: a simple program to detect some spacing errors in text
-file in English or French.
+have in the beginning: a simple program to detect some spacing errors in a
+text file in English or French.
 
 My repository at this point can be found
 [here](https://github.com/Smlep/SpacingChecker/tree/4cd6cc179914720c0059dd7588f742f56cd4bdce).
@@ -190,11 +190,11 @@ it was annoying to install.
 
 To run the checker, you had to clone the
 [repository](https://github.com/Smlep/SpacingChecker) and then call the checker
-from withing the repository. To make it easy to install I decided to add it to
+from within the repository. To make it easy to install I decided to add it to
 a real package manager.
 
-The only package manager I really used being
-[Homebrew](https://brew.sh/), I wanted to do this one at least, and if it was
+The only package manager I was really using being
+[Homebrew](https://brew.sh/), I wanted to do at least this one, and if it was
 not too hard, then I would make it able to be installed with `apt-get` and
 `Pacman`.
 
@@ -225,17 +225,17 @@ Checking tests/theTortoiseAndTheHare.txt:
 No error found in tests/theTortoiseAndTheHare.txt
 ```
 
-Adding SpacingChecker to Homebrew really blow off my motivation, so I decided
-not to add it to `apt-get` or `Pacman` for now, but I might do it in the
-future.
+Adding SpacingChecker to Homebrew really made me lose my motivation, so I
+decided not to add it to `apt-get` or `Pacman` for now, but I might do it
+in the future.
 
 Conclusion
 ----------
 
-This project took me a few dozens of hours in the end instead of only being a 2
-or 3 hours project like I expected in the end.
+This project took me a few dozen of hours in the end instead of only being a 2
+or 3 hour project like I expected in the beginning.
 
-On the one hand, on may seem like a waste of my time because I spend all these
+On the one hand, it may seem like a waste of my time because I spend all these
 hours doing an almost-useless checker that will probably never be used by
 anyone but me.
 
