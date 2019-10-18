@@ -210,7 +210,7 @@ $ brew tap Smlep/SpacingChecker
 $ brew install spacingChecker
 ```
 
-Then, to use this from anywhere, juste call the `spaceCheck` command and
+Then, to use this from anywhere, just call the `spaceCheck` command and
 everything works.
 
 ```
@@ -232,12 +232,25 @@ future.
 Conclusion
 ----------
 
-This is still a work in progress...
------------------------------------
+This project took me a few dozens of hours in the end instead of only being a 2
+or 3 hours project like I expected in the end.
+
+On the one hand, on may seem like a waste of my time because I spend all these
+hours doing an almost-useless checker that will probably never be used by
+anyone but me.
+
+But on the other hand, I learned how to build a complete tool from the
+beginning to the "end" about a simple functionality and I feel like I learned a
+lot about how to deploy something I created on Homebrew.
+
+So, maybe it was a waste of time, but I'm proud I worked on this anyway, and
+honestly, **I had time to waste** the weeks I worked on this.
 
 
-
-
+Since I really enjoyed working on that, I might come back with another
+open-source project in a few weeks, months, as soon as I find an idea which
+seems worthy of my time (but honestly, pretty much anything productive is I
+guess).
 
 The source code for this project can be found
 [here](https://github.com/Smlep/SpacingChecker), you can
