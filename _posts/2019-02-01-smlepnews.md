@@ -13,7 +13,7 @@ the lectures I had at school.
 
 So I decided to work on another small project because I really enjoyed working
 on my last open-source project (you can take a look at what I wrote on
-[SpacingChecker](/jekyll/update/2018/09/12/spacingchecker.html) a few months
+[SpacingChecker](/jekyll/update/2018/10/31/spacingChecker.html) a few months
 ago).
 
 Finding what to work on
@@ -21,7 +21,7 @@ Finding what to work on
 
 The first main step of working on this project was to find what kind of project
 I wanted it to be. All I knew is that I wanted to work on something different
-from [SpacingChecker](/jekyll/update/2018/09/12/spacingchecker.html), that meant
+from [SpacingChecker](https://github.com/Smlep/SpacingChecker), that meant
 no complex regular expression checking in shell, and more precisely no shell at
 all.
 
