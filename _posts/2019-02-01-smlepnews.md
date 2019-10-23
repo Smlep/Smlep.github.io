@@ -1,5 +1,5 @@
 ---
-title: 'SmlepNews: A simple program to gather news from various APIs'
+title: 'Writing a simple program to gather news from various APIs'
 layout: post
 categories: jekyll update
 ---
