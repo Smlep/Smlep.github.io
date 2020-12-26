@@ -54,7 +54,7 @@ with 2-player chess is how winners and losers are handled.
 
 The winner is the first player to checkmate another player, meaning that there are one
 winner and two losers. This makes the game more interesting, rewarding aggressive strategies
-since playing too defensive might end up in a loss where one of the other players checked-mate
+since playing too defensive might end up in a loss where one of the other players checkmated
 the third player.
 
 
