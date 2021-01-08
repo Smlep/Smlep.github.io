@@ -141,7 +141,7 @@ want to make it public so that everyone could come and play.
 
 As we started having less free time due to school projects and then the real jobs we got
 after graduating, we spent way less time developing this project the following months but we kept working
-on it and added a lot of new feature. Some of those being necessary for a public release,
+on it and added a lot of new sfeature. Some of those being necessary for a public release,
 some that we felt were a really nice addition for users and some which might just be
 really useless (Hello, in-game chat). Among these extra-features are:
 
