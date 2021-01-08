@@ -191,7 +191,7 @@ players won't buy skins if the other players can't see it.
 
 We considered some other solutions than ads but in the end, **we did not find an adequate business model**.
 Not being able to generate revenue is not currently an issue, since the goal never was to quit our jobs and
-start working on this project every day of the week. Nevertheless we did not anticipate when we started this
+start working on this project every day of the week. Nevertheless, we did not anticipate when we started this
 project (before we decided to add many unexpected features) that there were gonna be real costs to run
 the website.
 
