@@ -2,6 +2,7 @@
 title: 'SpacingChecker: New languages, multiple file checking and Homebrew installation'
 layout: post
 categories: jekyll update
+published: false
 ---
 
 I'm back a few weeks later with more updates on [SpacingChecker](https://github.com/Smlep/SpacingChecker). I've been working on it for a good month now and this project is coming to an end.

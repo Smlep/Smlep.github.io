@@ -3,6 +3,7 @@ layout: post
 title:  "SpacingChecker: Starting a new project"
 date:   2018-09-12 19:00:00 +0200
 categories: jekyll update
+published: false
 ---
 
 I started developping a small bash program to check punctuations error, it only supports french right now
