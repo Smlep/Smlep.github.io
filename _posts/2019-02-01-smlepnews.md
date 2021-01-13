@@ -288,3 +288,7 @@ Thanks for reading this!
 The source code for this project can be found
 [here](https://github.com/Smlep/smlepNews), you can leave a star if you find it
 useful :blush:.
+
+Edit: I have implemented a website to subscribe to these daily news with custom
+configurations, go check it out it's free:
+[https://www.mycustomnews.com/](https://www.mycustomnews.com/).
